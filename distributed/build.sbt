@@ -24,5 +24,12 @@ libraryDependencies ++= {
   )
 }
 
-scalacOptions := Seq("-unchecked", "-deprecation")
+scalacOptions := Seq("-unchecked", "-deprecation"
+  ,
+//  "-Xlint",
+  "-Ywarn-unused",
+  "-Ywarn-dead-code",
+  "-feature",
+  "-language:_"
+)
 
