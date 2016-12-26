@@ -3,7 +3,6 @@ package com.malsolo.akkainaction.filters
 import java.text.SimpleDateFormat
 import java.util.Date
 
-import akka.actor.Actor.Receive
 import akka.actor.{Actor, ActorRef}
 
 import scala.collection.mutable.ListBuffer
@@ -39,6 +38,13 @@ object ImageProcessing {
     "%s|%s|%s".format(dateFormat.format(date), speed, license)
   }
 
+  def getLicense(image: String): Option[String] = {
+    val attributes = image.split('|')
+    if (attributes.size == 3)
+      Some(attributes(2))
+    else
+      None
+  }
 }
 
 class GetSpeed(pipe: ActorRef) extends Actor {
