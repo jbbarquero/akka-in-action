@@ -9,6 +9,10 @@ case object BookSupplySoldOut
 case object Done
 case object PendingRequests
 
+//responses
+case object PublisherRequest
+case class BookReply(context: AnyRef, reserveId: Either[String, Int])
+
 //States
 sealed trait State
 case object WaitForRequests extends State
@@ -20,8 +24,9 @@ case object ProcessSoldOut extends State
 case class StateData(numberOfBooksInStore: Int, pendingRequests: Seq[BookRequest])
 
 
-class Inventory extends Actor with FSM[State, StateData] {
+class Inventory(publisher: ActorRef) extends Actor with FSM[State, StateData] {
 
+  var reserveId = 0
   startWith(WaitForRequests, new StateData(0, Seq()))
 
   when(WaitForRequests) {
@@ -85,5 +90,30 @@ class Inventory extends Actor with FSM[State, StateData] {
       stay
     }
   }
+
+  onTransition {
+    case _ -> WaitForRequests => {
+      if (!nextStateData.pendingRequests.isEmpty) {
+        self ! PendingRequests
+      }
+    }
+    case _ -> WaitForPublisher => {
+      publisher ! PublisherRequest
+    }
+    case _ -> ProcessRequest => {
+      val request = nextStateData.pendingRequests.head
+      reserveId += 1
+      request.target ! new BookReply(request.context, Right(reserveId))
+      self ! Done
+    }
+    case _ -> ProcessSoldOut => {
+      nextStateData.pendingRequests.foreach(request => {
+        request.target ! new BookReply(request.context, Left("SoldOut"))
+      })
+      self ! Done
+    }
+  }
+
+  initialize
 
 }
