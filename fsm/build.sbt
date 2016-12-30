@@ -7,6 +7,7 @@ libraryDependencies ++= {
 	val akkaHttpVersion = "10.0.0"
 	Seq(
 	    "com.typesafe.akka" %% "akka-actor" % akkaVersion,
+	    "com.typesafe.akka" %%  "akka-agent" % akkaVersion,
 	    "com.typesafe.akka" %% "akka-remote" % akkaVersion,
 	    "com.typesafe.akka" %% "akka-multi-node-testkit" % akkaVersion,
 
