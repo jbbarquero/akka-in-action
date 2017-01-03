@@ -1,4 +1,4 @@
-package com.malsolo.akkainaction.streams
+package com.malsolo.akkainaction.streams.basic
 
 import java.nio.file.{Path, Paths}
 

@@ -1,13 +1,12 @@
-package com.malsolo.akkainaction.streams
-
-import akka.actor.ActorSystem
-import akka.stream.{ActorMaterializer, IOResult}
-import akka.stream.scaladsl.{FileIO, RunnableGraph, Sink, Source}
-import akka.util.ByteString
-import com.typesafe.config.ConfigFactory
+package com.malsolo.akkainaction.streams.basic
 
 import java.nio.file.StandardOpenOption._
 
+import akka.actor.ActorSystem
+import akka.stream.scaladsl.{FileIO, RunnableGraph, Sink, Source}
+import akka.stream.{ActorMaterializer, IOResult}
+import akka.util.ByteString
+import com.typesafe.config.ConfigFactory
 
 import scala.concurrent.Future
 
