@@ -38,6 +38,10 @@ object LogStreamProcessor extends EventMarshalling {
     }
   }
 
+  def logLine(event: Event) = {
+    s"""${event.host} | ${event.service} | ${State.norm(event.state)} | ${event.time.toString} | ${event.description} ${if(event.tag.nonEmpty) "|" + event.tag.get else "|" } ${if(event.metric.nonEmpty) "|" + event.metric.get else "|" }\n"""
+  }
+
   case class LogParseException(msg: String) extends Exception(msg)
 
 }

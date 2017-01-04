@@ -1,0 +1,7 @@
+> runMain com.malsolo.akkainaction.streams.flow.EventFilter  files/origin/events.log files/destination/events_filtered.log ok
+
+> runMain com.malsolo.akkainaction.streams.flow.EventFilter  files/origin/events_ko.log files/destination/events_ko_filtered.log ok
+
+> runMain com.malsolo.akkainaction.streams.flow.BidiEventFilter plain plain  files/origin/events_ok.log files/destination/events_ok_filtered.log ok
+
+> runMain com.malsolo.akkainaction.streams.flow.BidiEventFilter plain json  files/origin/events_ok.log files/destination/events_ok_filtered.log ok
