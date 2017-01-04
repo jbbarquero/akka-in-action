@@ -14,7 +14,7 @@ object LogStreamProcessor extends EventMarshalling {
             Event(host.trim, service.trim,
               state.trim match {
                   case State(s) => s
-                    case _ => throw new Exception(s"Unexpected state: $line")
+                    case _ => throw new LogParseException(s"Unexpected state: $line")
               }, ZonedDateTime.parse(time.trim), desc.trim,
               if (t.nonEmpty) Some(t) else None,
               if (m.nonEmpty) Some(m.toDouble) else None
@@ -25,7 +25,7 @@ object LogStreamProcessor extends EventMarshalling {
             Event(host.trim, service.trim,
               state.trim match {
                 case State(s) => s
-                case _ => throw new Exception(s"Unexpected state: $line")
+                case _ => throw new LogParseException(s"Unexpected state: $line")
               }, ZonedDateTime.parse(time.trim), desc.trim
             )
           )

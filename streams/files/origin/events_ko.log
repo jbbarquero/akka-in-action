@@ -1,0 +1,7 @@
+my-host-1 | web-app | ok    | 2015-08-12T12:12:00.127Z | 5 tickets sold.||
+-
+my-host-2 | web-app | ok    | 2015-08-12T12:12:01.127Z | 3 tickets sold.||
+my-host-1 | web-app | kkota | 2015-08-12T12:12:02.127Z | 1 tickets sold.||
+my-host-2 | web-app | error | 2015-08-12T12:12:03.127Z | exception!!    ||
+my-host-1 | web-app | ok    | 2015-08-12T12:12:04.127Z | 0 tickets sold.||
+my-host-1 | web-app | ok    | 2015-08-12T12:12:05.127Z | 10 tickets sold.||
