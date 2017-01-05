@@ -1,7 +1,7 @@
-package com.malsolo.akkainaction.perssitence.calculator
+package com.malsolo.akkainaction.persitence.calculator
 
 import akka.actor.ActorSystem
-import com.malsolo.akkainaction.perssitence.PersistenceSpec
+import com.malsolo.akkainaction.persitence.PersistenceSpec
 
 class CalculatorSpec extends PersistenceSpec(ActorSystem("test")) {
 

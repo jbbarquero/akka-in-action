@@ -1,4 +1,4 @@
-package com.malsolo.akkainaction.perssitence.calculator
+package com.malsolo.akkainaction.persitence.calculator
 
 import akka.actor.{ActorLogging, Props}
 import akka.persistence.{PersistentActor, RecoveryCompleted}

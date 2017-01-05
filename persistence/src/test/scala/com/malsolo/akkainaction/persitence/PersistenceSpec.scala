@@ -1,4 +1,4 @@
-package com.malsolo.akkainaction.perssitence
+package com.malsolo.akkainaction.persitence
 
 import java.io.File
 
